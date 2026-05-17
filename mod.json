@@ -1,0 +1,11 @@
+{
+  "name": "betterlogisticsspeed",
+  "displayName": "betterLogisticsSpeed",
+  "author": "DeterMination",
+  "version": "1.1.0",
+  "minGameVersion": 154,
+  "description": "Add long-window moving-average logistics speed rows under vanilla item speed display. / 在原版物流速度显示下方追加长窗口滑动平均行。",
+  "main": "betterlogisticsspeed.BetterLogisticsSpeedMod",
+  "hidden": true,
+  "java": true
+}
