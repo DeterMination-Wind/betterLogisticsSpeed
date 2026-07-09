@@ -20,12 +20,22 @@
 - [x] 兼容回退：未安装/未启用 MI2U 时走原版 `PlacementFragment.topTable` 路径，
       行为与 1.0.0 一致。
 
+## 2.0.0 新增
+
+- [x] 多节点物流速率标记：支持按 `;` 标记当前悬停物流节点，重复标记时重置采样。
+- [x] OverlayUI 标记列表：按添加顺序显示最多 12 个节点，并持续展示总速率与各物品速率。
+- [x] 行级删除与全部清除：支持按 `'` 删除当前悬停列表行，并提供“全部清除”按钮。
+- [x] 世界内编号标记：已标记建筑显示轻量编号，并与列表顺序对应。
+- [x] MindustryX / OverlayCompatBridge 兼容：通过反射注册同一 OverlayUI 窗口，缺失时自动降级。
+- [x] 独立采样修正：已标记节点不再复用原版共享流速缓存，避免多节点之间互相污染。
+- [x] OverlayUI 宽度行为对齐 PGMM：内容宽度跟随父窗口宽度扩展，不再依赖固定宽度占位。
+
 ## 当前产物
 
 - `dist/betterLogisticsSpeed.jar`
 - `dist/betterLogisticsSpeed.zip`
-- `../构建/betterLogisticsSpeed/betterLogisticsSpeed-1.1.0.jar`
-- `../构建/betterLogisticsSpeed/betterLogisticsSpeed-1.1.0.zip`
+- `../构建/betterLogisticsSpeed/betterLogisticsSpeed-2.0.0.jar`
+- `../构建/betterLogisticsSpeed/betterLogisticsSpeed-2.0.0.zip`
 
 ## 后续待办
 
