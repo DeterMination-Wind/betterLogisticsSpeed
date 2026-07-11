@@ -1,4 +1,10 @@
 # betterLogisticsSpeed
+<h1 align="center">
+  <a href="https://github.com/DeterMination-Wind/betterLogisticsSpeed/releases/latest"><img src="https://img.shields.io/github/v/release/DeterMination-Wind/betterLogisticsSpeed?display_name=release&label=Latest%20Release&color=green"></a>
+  <a href="https://github.com/DeterMination-Wind/betterLogisticsSpeed/releases"><img src="https://img.shields.io/github/downloads/DeterMination-Wind/betterLogisticsSpeed/total?label=Downloads&color=blue"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/DeterMination-Wind/betterLogisticsSpeed?label=License"></a>
+  <a href="https://github.com/DeterMination-Wind/betterLogisticsSpeed"><img src="https://img.shields.io/github/stars/DeterMination-Wind/betterLogisticsSpeed?style=flat&label=Star%20this%20mod!&color=yellow"></a>
+</h1>
 
 一个 Mindustry Java 客户端模组（`minGameVersion: 154`），用于增强物流建筑的速率显示：既保留悬停面板中的长窗平均速率，也支持多节点标记列表与 OverlayUI 显示。
 
