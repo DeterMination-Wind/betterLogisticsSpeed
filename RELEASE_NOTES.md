@@ -1,3 +1,27 @@
+# betterLogisticsSpeed v2.0.1
+
+## 中文
+
+### 主要更新
+
+- 版本号更新至 2.0.1。
+
+### 改进
+
+- 悬停面板扩展行改为复用行结构：仅当物品集合或“总吞吐”开关变化时重建行，平时逐帧只更新文本，避免每个 tick 重建表格的开销。
+
+## English
+
+### Highlights
+
+- Bumped version to 2.0.1.
+
+### Improvements
+
+- Hover-panel extra rows now reuse their row structure: the layout is rebuilt only when the item set or the total-throughput toggle changes, and per-frame updates only refresh label text instead of rebuilding the table every tick.
+
+---
+
 # betterLogisticsSpeed v2.0.0
 
 ## 中文

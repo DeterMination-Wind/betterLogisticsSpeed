@@ -17,6 +17,7 @@
 - 支持用 `'` 删除当前鼠标悬停的 OverlayUI 行，并可一键“全部清除”。
 - 已标记节点会在世界中绘制编号，与 OverlayUI 列表顺序对应。
 - 支持 MindustryX OverlayUI，以及 vanilla + OverlayCompatBridge 的兼容窗口注册。
+- 兼容 MI2-Utilities-Java：启用其 `replaceTopTable` 设置后，扩展行会跟随 MI2U 的悬停信息窗口继续显示。
 - 不改原版 block 逻辑，仅在 UI 悬停面板后置追加信息。
 
 ## 设置项
@@ -47,4 +48,5 @@ gradle deploy
 - 当前统计范围为“物品物流”。
 - 仅在建筑悬停信息区域生效。
 - 标记列表需要 MindustryX OverlayUI 或 OverlayCompatBridge；未安装时会自动禁用列表功能，但悬停面板增强仍然可用。
+- 安装 MI2-Utilities-Java 且启用 `replaceTopTable` 时，悬停面板增强在 MI2U 的悬停信息窗口中生效。
 - 若目标客户端字段结构变化导致反射失败，功能会静默降级为不显示扩展行（不影响游戏运行）。

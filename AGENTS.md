@@ -8,7 +8,7 @@
 - 类型：Mindustry Java 客户端模组
 - 目标版本：`minGameVersion: 154`
 - 主入口：`betterlogisticsspeed.BetterLogisticsSpeedMod`
-- 功能范围：物品物流长窗速度显示增强（悬停 UI）
+- 功能范围：物品物流长窗速度显示增强（悬停 UI）、OverlayUI 多节点标记列表（最多 12 节点）、世界内编号绘制、MI2-Utilities-Java `replaceTopTable` 反射桥
 
 ## 代码约束
 
@@ -27,6 +27,11 @@
   - `hover`
   - `nextFlowBuild`
 - 在原版物品流速区域下方注入额外表：`bls-flow-extra`
+- OverlayUI 标记列表：反射注册 `mindustryX.features.ui.OverlayUI` 窗口（`betterLogisticsSpeed`，最多 12 个标记节点），无 OverlayUI 时自动禁用标记功能
+- 键位：`;`（`bls-mark-node`）标记/重置当前悬停节点，`'`（`bls-delete-hovered-node`）删除鼠标悬停的列表行
+- 世界标记：`drawWorldMarkers` 在 `Layer.overlayUI` 绘制旋转方框与编号，编号与 OverlayUI 列表顺序对应
+- MI2U 反射桥：`probeMi2u()` 探测 `mi2u.MI2UVars.mi2ui`、`Mindow2.settings`、`SettingHandler.getBool("replaceTopTable")`、`HoverTopTable` 的 `hoverInfo`/`build`/`buildt`；MI2U 启用 `replaceTopTable` 时改为跟随 `HoverTopTable.buildt` 注入扩展行
+- 标记节点采样：以 `TrackedItemModule` 包装替换目标建筑的 flow `ItemModule`（`FlowBinding` 负责还原），独立追踪，避免不同标记节点间速率串扰
 
 ## 设置项规范
 
