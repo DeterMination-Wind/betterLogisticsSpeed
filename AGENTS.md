@@ -10,6 +10,10 @@
 - 主入口：`betterlogisticsspeed.BetterLogisticsSpeedMod`
 - 功能范围：物品物流长窗速度显示增强（悬停 UI）、OverlayUI 多节点标记列表（最多 12 节点）、世界内编号绘制、MI2-Utilities-Java `replaceTopTable` 反射桥
 
+## 文档索引
+
+分类文档位于 [docs/](docs/README.md)：文档导航、架构总览、开发指南、版本与发布、测试指南、术语表。从 [docs/README.md](docs/README.md) 进入；文档内容必须与源码对应。
+
 ## 代码约束
 
 - Java 8 兼容（`sourceCompatibility/targetCompatibility=1.8`）。
@@ -42,6 +46,15 @@
 - `setting.bls-show-total.name`
 - `setting.bls-decimals.name`
 
+## Neon 聚合形态（bekBundled）
+
+本模组可独立安装，也可并入 Neon 聚合模组，靠主类契约切换：
+
+- 主类提供 `public static boolean bekBundled` 与 `public static void bekBuildSettings(SettingsMenuDialog.SettingsTable)`；重构不得移除或改名这两个成员。
+- 独立态（`bekBundled == false`）：`ClientLoadEvent` 中自行 `ui.settings.addCategory(...)` 注册设置分类；vanilla 客户端依赖 `softDependencies` 声明的 `overlay-compat-bridge` 提供 OverlayUI。
+- 聚合态（`bekBundled == true`，由 Neon 置位）：跳过自建设置分类，设置由 Neon 总入口调用 `bekBuildSettings(...)` 接管；`mod.json` 标记 `hidden: true`，不在模组列表单独展示。
+- 并入 Neon 发布时的 `classes.dex` 打包由 Neon 侧聚合管线负责，本仓库构建链不含 D8。
+
 ## 构建/发布规范
 
 每次变更后至少执行：
@@ -53,11 +66,13 @@
    - `dist/betterLogisticsSpeed.zip`
    - `../构建/betterLogisticsSpeed/betterLogisticsSpeed-<version>.jar`
    - `../构建/betterLogisticsSpeed/betterLogisticsSpeed-<version>.zip`
+4. 涉及悬停注入、标记节点或 MI2U/OverlayUI 桥的改动，按 [docs/testing.md](docs/testing.md) 的手测清单实机回归。
 
 ## 提交约束
 
 - 不改动与当前任务无关文件。
 - 不做无关格式化。
-- 修改设置项时同步更新中英文 bundle。
+- 修改设置项时同步更新全部语言 bundle（英文 / 简体中文 / 繁体中文）。
+- 提交信息使用简短前缀风格（如 `betterLogisticsSpeed: ...`、`docs:`、`release: ...`），只提交与当前任务相关的文件。
 
 命令操作请使用 PowerShell 7（`pwsh`）。

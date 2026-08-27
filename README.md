@@ -20,3 +20,7 @@ gradle deploy
 ## 说明
 
 当前主要服务于物品物流。若使用节点列表功能，需要 MindustryX OverlayUI 或 OverlayCompatBridge。
+
+## 文档
+
+分类文档见 [docs/README.md](docs/README.md)：架构总览、开发指南、版本与发布、测试指南与术语表。
