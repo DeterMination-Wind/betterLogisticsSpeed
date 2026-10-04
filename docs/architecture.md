@@ -32,7 +32,7 @@ betterLogisticsSpeed 是纯客户端信息增强模组：在原版物品流速�
 | `TrackedItemModule` | `ItemModule` 包装器，替换建筑的 flow 模块；`add/handleFlow/undoFlow` 记账，`updateFlow` 时按间隔结算速率 |
 | `FlowSlot`（`DirectItemsSlot` / `FieldFlowSlot`）+ `FlowBinding` | 定位建筑上承载 flow 的字段（`build.items` 直取或反射遍历），装入包装器；`restore()` 还原 |
 | `MarkedNode` | 一个标记节点 = 建筑 + tracker + binding；最多 `maxMarkedNodes = 12` 个 |
-| `OverlayCompat` | 反射探测 `mindustryX.features.ui.OverlayUI` 并 `registerWindow` 注册 "betterLogisticsSpeed" 窗口 |
+| `OverlayCompat` | 反射探测 `mindustryX.features.ui.OverlayUI`（核心优先解析，避免命中 Neon 打包的同名副本）并 `registerWindow` 注册 "betterLogisticsSpeed" 窗口；类来自游戏核心（真 MindustryX）时不调用 `init()`，由其自行管理窗口组 |
 
 两条采样路径：
 
@@ -72,8 +72,8 @@ public static boolean bekBundled = false;
 public static void bekBuildSettings(SettingsMenuDialog.SettingsTable table)
 ```
 
-- **独立运行**（`bekBundled == false`）：`ClientLoadEvent` 中自行 `ui.settings.addCategory("@settings.betterlogisticsspeed", ...)` 注册自己的设置分类；`mod.json` 声明 `softDependencies: ["overlay-compat-bridge"]`，vanilla 客户端安装该桥接模组后即可使用标记列表。
-- **并入 Neon 聚合**（`bekBundled == true`，由聚合入口置位）：跳过自建设置分类，由 Neon 的设置系统调用 `bekBuildSettings(...)` 把设置并入总页；`mod.json` 同时标记 `hidden: true`，不在模组列表中单独展示。MindustryX 环境下 OverlayUI 由 MDtX 直接提供。
+- **独立运行**（`bekBundled == false`）：`ClientLoadEvent` 中自行 `ui.settings.addCategory("@settings.betterlogisticsspeed", ...)` 注册自己的设置分类；`mod.json` 声明 `softDependencies: ["overlay-compat-bridge"]`，vanilla 客户端安装该桥接模组后即可使用标记列表。OverlayUI 类核心优先解析：真 MindustryX 时取游戏核心的那份（不调用 `init()`），否则才回退到桥接副本并调用其 `init()`。
+- **并入 Neon 聚合**（`bekBundled == true`，由聚合入口置位）：跳过自建设置分类，由 Neon 的设置系统调用 `bekBuildSettings(...)` 把设置并入总页；`mod.json` 同时标记 `hidden: true`，不在模组列表中单独展示。MindustryX 环境下 OverlayUI 由 MDtX 直接提供（来自游戏核心，bls 只注册窗口、不调用 `init()`）；vanilla 下由 Neon 打包的桥接副本提供。
 
 无论哪种形态，功能代码完全相同；差异只在设置入口的归属与 OverlayUI 的提供方。
 
