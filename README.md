@@ -1,5 +1,7 @@
 # betterLogisticsSpeed
 
+> [NOTE] 若有反馈，请发送反馈到bugsoc@qq.com / If you have any feedback, please send it to bugsoc@qq.com
+
 > 用更稳定的长期数据判断物流是否真的够用。
 
 betterLogisticsSpeed 是一个 Mindustry 客户端信息增强模组。原版物流速率容易受短时间波动影响，它补充更稳定的观察方式，帮助你判断一条运输线的真实吞吐，而不是被某一瞬间的数字误导。
