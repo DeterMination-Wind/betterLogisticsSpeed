@@ -1,6 +1,7 @@
 # betterLogisticsSpeed
 
-> [NOTE] 若有反馈，请发送反馈到bugsoc@qq.com / If you have any feedback, please send it to bugsoc@qq.com
+> [!NOTE]
+> 若有反馈，请发送反馈到bugsoc@qq.com / If you have any feedback, please send it to bugsoc@qq.com
 
 > 用更稳定的长期数据判断物流是否真的够用。
 
