@@ -30,12 +30,17 @@
 - [x] 独立采样修正：已标记节点不再复用原版共享流速缓存，避免多节点之间互相污染。
 - [x] OverlayUI 宽度行为对齐 PGMM：内容宽度跟随父窗口宽度扩展，不再依赖固定宽度占位。
 
+## 2.0.2 更新
+
+- [x] OverlayUI 标记节点窗口改为按内容定尺寸，重启后不再以零宽开始。
+- [x] 移除内容表的父宽下限，内容变窄时面板能跟着收回。
+
 ## 当前产物
 
 - `dist/betterLogisticsSpeed.jar`
 - `dist/betterLogisticsSpeed.zip`
-- `../构建/betterLogisticsSpeed/betterLogisticsSpeed-2.0.0.jar`
-- `../构建/betterLogisticsSpeed/betterLogisticsSpeed-2.0.0.zip`
+- `../构建/betterLogisticsSpeed/betterLogisticsSpeed-2.0.2.jar`
+- `../构建/betterLogisticsSpeed/betterLogisticsSpeed-2.0.2.zip`
 
 ## 后续待办
 

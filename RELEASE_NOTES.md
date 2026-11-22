@@ -1,3 +1,27 @@
+# betterLogisticsSpeed v2.0.2
+
+## 中文
+
+### 主要更新
+
+- 版本号更新至 2.0.2。
+
+### 修复
+
+- OverlayUI 标记节点列表重启后不再塌成零宽：窗口改为按内容定尺寸，内容变窄时也会跟着收回。
+
+## English
+
+### Highlights
+
+- Bumped version to 2.0.2.
+
+### Fixed
+
+- The OverlayUI marked-node list no longer collapses to zero width after a restart: the window now sizes itself from its content and narrows again when the content shrinks.
+
+---
+
 # betterLogisticsSpeed v2.0.1
 
 ## 中文
